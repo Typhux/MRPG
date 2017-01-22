@@ -1,3 +1,6 @@
-<p>
-  map works!
-</p>
+<div class="map-container" style="margin: auto;" [style.width.px]="120*(zoom+1)">
+    <div class="map-tiles" *ngFor="let userLand of landMap; let i = index;">
+        <div class="tiles-name" [style.backgroundColor]="userLand.land.colors[0]" *ngIf="userLand.land != null">{{ userLand.land.name }}</div>
+        <div class="tiles-name" style="background-color: grey;" *ngIf="userLand.land == null">null</div>
+    </div>
+</div>
