@@ -83,13 +83,16 @@ export class LandSpecial extends LandBase {
 export class UserLand {
     land: LandBase; // Id of the Land to place
     location: LocationMap; // Location where the Land must be place
+    isCurrent: boolean;
 
     constructor(
         land: LandBase,
-        location: LocationMap
+        location: LocationMap,
+        isCurrent: boolean
     ) {
-            this.land = land,
-            this.location = location
+            this.land = land;
+            this.location = location;
+            this.isCurrent = isCurrent;
     }
 
     /**

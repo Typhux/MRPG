@@ -1,6 +1,8 @@
-<div class="map-container" style="margin: auto;" [style.width.px]="120*(zoom+1)">
-    <div class="map-tiles" *ngFor="let userLand of landMap; let i = index;">
-        <div class="tiles-name" [style.backgroundColor]="userLand.land.colors[0]" *ngIf="userLand.land != null">{{ userLand.land.name }}</div>
-        <div class="tiles-name" style="background-color: grey;" *ngIf="userLand.land == null">null</div>
+<div class="map-container" [style.width.px]="110*(zoom+1)">
+    <div class="map-tiles"
+     [ngClass]="{'margin-tiles-right': i%(zoom+1) != zoom, 'margin-tiles-left': i%(zoom+1) == 0, 'current-land': userLand.isCurrent}" 
+    *ngFor="let userLand of landMap; let i = index;">
+        <div class="tiles {{ userLand.land.colors[0] }}" *ngIf="userLand.land != null" (click)="clickUserLand(userLand)"></div>
+        <div style="background-color: #3b403b;" *ngIf="userLand.land == null"></div>
     </div>
 </div>
